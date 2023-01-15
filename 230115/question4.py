@@ -1,4 +1,27 @@
 ## fail to be accepted
+from collections import defaultdict
+
+# class Solution(object):
+#     def maxOutput(self, n, edges, price):
+#         """
+#         :type n: int
+#         :type edges: List[List[int]]
+#         :type price: List[int]
+#         :rtype: int
+#         """
+#
+#         adj = defaultdict(set)
+#         for i, j in edges:
+#             adj[i].add(j)
+#             adj[j].add(i)
+#
+#         @cache
+#         def dfs(cur, prev):
+#             return price[cur] + max([dfs(nxt, cur) for nxt in adj[cur] - {prev}] + [0])
+#
+#         return max(dfs(i, -1) - price[i] for i in range(n))
+
+
 
 class Solution(object):
     def maxOutput(self, n, edges, price):
@@ -8,7 +31,7 @@ class Solution(object):
         :type price: List[int]
         :rtype: int
         """
-
+        @cache
         def max_route(node_idx, drop):
             result = 0
             for leaf_idx in A[node_idx]:
